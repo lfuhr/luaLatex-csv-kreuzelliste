@@ -1,0 +1,35 @@
+% !TeX program=lualatex
+\documentclass[parskip=half]{scrartcl}
+\usepackage{luacode}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\pagestyle{empty} % Keine Seitennummer
+
+% Parameter
+\newcommand{\blattnummer}{3}
+\newcommand{\gruppe}{} % Unterscheidung nach Übungsgruppen könnte einfach nachgerüstet werden. Ist aber vorerst nicht beabsichtigt.
+\newcommand{\datei}{mathe.csv}
+
+% Lua-Teil
+\begin{luacode}
+	require("kreuzellesen.lua")
+	require("listeerzeugen.lua")
+	kopfdaten, blattinfos, studenten = lese_datei("\datei")
+\end{luacode}
+\newcommand{\tabelleausgeben}{ \directlua{tex.print(print_table(kopfdaten, blattinfos, studenten, \blattnummer))} }
+\newcommand{\kopfdaten}[1]{\directlua{tex.print(kopfdaten.#1)}}
+\newcommand{\blattname}{\directlua{tex.print(blattinfos[\blattnummer].name)}}
+\newcommand{\aufgabenBisher}{\directlua{tex.print(aufgaben_bisher( blattinfos, \blattnummer ))}}
+\newcommand{\minimum}{\directlua{tex.print(kopfdaten.Minimum)}}
+
+
+\begin{document}
+
+	\section*{Gruppe 11, Montag 03.07.2017, 14:00 -- 16:00, \blattname}
+	\if\aufgabenBisher0 \else Bisher gab es \aufgabenBisher{} Aufgaben. \fi Zur Zulassung zur Prüfung müssen Sie im gesamten Semester mindestens \minimum{}\,\% der Aufgaben ankreuzen.
+
+	\tabelleausgeben
+
+	Raum: PHY 5.1.03 \hfill \raggedleft \kopfdaten{MeinVorname} \kopfdaten{MeinNachname}, \kopfdaten{MeineEmail} %
+
+\end{document}

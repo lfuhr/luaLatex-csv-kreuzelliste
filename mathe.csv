@@ -1,0 +1,14 @@
+Semester;SS 2017;;;;;;;;;;;;;
+IrgendeiKey;Irgendeinvalue;;;;;;;;;;;;;
+MeinVorname;Christian;;;;;;;;;;;;;
+MeinNachname;Plankl;;;;;;;;;;;;;
+MeineEmail;christian.plankl@stud.uni-regensburg.de;;;;;;;;;;;;;
+Minimum;75;%;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+Legende;angekreuzt;anwesend;vorgerechnet;Abwesend;;;;;;;;;;
+;X;A;V;<leeres feld>;;;;;;;;;;
+;;;;;;;;;;;;;;
+#Vorname;Nachname;Matrikelnummer;;$Blatt 1;1a;1b;2;$Weihnachtsblatt;1;2;$Blatt 2;1;2;3
+;;;;;;;;;;;;;;
+Ludwig;Fuhr;123;;A;;X;V;A;;X;;;;
+Christan;Plankl;234;;A;;X;X;;;;;;;
